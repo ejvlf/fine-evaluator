@@ -38,15 +38,20 @@ class FineDocument:
             
             print(output_string.getvalue())
 
-        return cls, output_string
+        return cls, output_string.getvalue()
 
 
 
         return cls, workdir
 
-    def __init__(self, file : StringIO):
+    def __init__(self, file : str):
 
+        self.mtic = self.__get_mtic(file)
+
+    def __parse_pdf_for_pattern (self, pattern:str, file:str):
         pass
 
-    def __parse_pdf_for_pattern (pattern:str, file:bytes):
-        pass
+    def __get_mtic(self, file:str):
+
+        pattern = "(?!Montante total areembolsar MTIC)(.*\d)"
+
