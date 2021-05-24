@@ -133,3 +133,4 @@ env-*
 .vscode
 /settings.json
 /docs
+objs/text.txt

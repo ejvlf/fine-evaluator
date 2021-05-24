@@ -5,6 +5,8 @@ def run ():
 
     fine = FineDocument.from_pdf_file("test_fine.pdf")
 
+    print(fine.mtic)
+
 
     
 

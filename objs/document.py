@@ -36,15 +36,15 @@ class FineDocument:
             for page in PDFPage.create_pages(document):
                 interpreter.process_page(page)
             
-            print(output_string.getvalue())
 
-        return cls, output_string.getvalue()
-
-
-
-        return cls, workdir
+        return cls(output_string.getvalue())
 
     def __init__(self, file : str):
+
+        with open("text.txt",  "w") as r:
+
+            r.write(file)
+
 
         self.mtic = self.__get_mtic(file)
 
@@ -53,5 +53,5 @@ class FineDocument:
 
     def __get_mtic(self, file:str):
 
-        pattern = "(?!Montante total areembolsar MTIC)(.*\d)"
+        pattern_list = ["(\(MTIC\):).+?EUR"]
 
